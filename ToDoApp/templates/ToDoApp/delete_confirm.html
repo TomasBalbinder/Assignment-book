@@ -1,0 +1,46 @@
+{% extends 'ToDoApp/base.html' %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'ToDoApp/style.css' %}">
+    <title>Delete Account</title>
+</head>
+<body class="gradient-custom">
+    <div class="container py-5">
+        <div class=" d-flex justify-content-center card-vertical">
+            <div class="col col-xl-7">
+                <div class="card border-card" style="border-radius: 1rem;">
+                    <img src="{% static 'ToDoApp\login-pictures.png' %}" alt="login form" class="card-img-top img-card-radius" height="50px"/>     
+                            <div class="card-body p-lg-5 text-black">      
+                                    <form action="" method="POST" >
+                                            {% csrf_token %} 
+                                        <div class="d-flex justify-content-center mb-5 pb-1">                                                  
+                                            <span class="h1 fw-bold ">Delete Account</span>                                       
+                                        </div> 
+                                        <div class="d-flex justify-content-center">
+                                            <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Are you sure delete your Account?</h5>
+                                        </div>                                                                          
+                                        <div class="d-flex justify-content-center mb-5 pb-1">                                                                                        
+                                            <button type="submit" class="btn button-color btn-lg btn-block button-frame button-color-active shadow-sm rounded">Delete Account</button>                                               
+                                        </div>                                  
+                                    </form>
+                                <a href="{% url 'profile' %}"><button type="submit" class="btn button-color btn-md button-color-active shadow-sm rounded">Back</button></a>                        
+                            </div>         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</body>
+</html>
+{% endblock content %}

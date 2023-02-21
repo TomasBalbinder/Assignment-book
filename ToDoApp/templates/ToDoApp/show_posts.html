@@ -1,0 +1,142 @@
+{% extends 'ToDoApp/base.html' %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+{% block content %}
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Show posts</title>
+        <link rel="stylesheet" href="{% static 'ToDoApp/style.css' %}">
+        <link rel="stylesheet" href="https://unpkg.com/flexmasonry/dist/flexmasonry.css">
+        <script src="https://unpkg.com/flexmasonry/dist/flexmasonry.js"></script>
+        <script src="https://kit.fontawesome.com/9103acf2c1.js" crossorigin="anonymous"></script>
+  
+    </head>
+    <body class="gradient-custom">        
+            <script language="JavaScript">
+                function toggle(source) {
+                checkboxes = document.getElementsByName('boxes');
+                for(var i=0, n=checkboxes.length;i<n;i++) {
+                    checkboxes[i].checked = source.checked;
+                }
+                }
+            </script>   
+            {% if not mydata %}           
+            <div class="container py-5 h-100">        
+                <div class="row d-flex justify-content-center card-vertical">                 
+                    <div class="card card-padding" style="border-radius: 1rem;width: 45rem;">
+                        <img src="{% static 'ToDoApp\login-pictures.png' %}" alt="login form" class="card-img-top img-card-radius" height="50px"/>     
+                        <div class="card-body py-5">
+                            <div class="row g-0">                              
+                                <div class="d-flex justify-content-center mb-3 pb-1">
+                                    {% for message in messages %}
+                                        {% if 'noposts' in message.tags %}
+                                            <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">{{message}}</h5>                                     
+                                        {% endif %}
+                                    {% endfor %}                                    
+                                </div> 
+                                <div class="d-flex justify-content-center mb-3 pb-1">                                     
+                                    <a href="{% url 'createtodo' %}" class="btn button-color btn-lg btn-block button-color-active shadow-sm rounded">Return</a>                                                                     
+                                </div>						                            							
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            {% for message in messages %}
+            <div class="d-flex justify-content-center">			
+                <div class="alert alert-danger" role="alert">
+                    <h5 class="fw-normal" style="letter-spacing: 1px;">{{message}}</h5>
+                </div>
+            </div> 
+            {% endfor %}
+        <form action="" method=POST>
+            {% csrf_token %}
+            <div class="h-100 d-inline-flex flex-column align-items-start sticky">
+                    <a href="{% url 'createtodo' %}" class="btn button-color btn-lg btn-block button-color-active shadow-sm rounded delete-button size-button hide-button border-card">Create</a> 
+                <div class="cat action shadow-sm profil-nickname-margin hide-button square">      
+                    <label>
+                        <input type="checkbox" class="" onClick="toggle(this)"/><span>Select All</span>
+                    </label>
+                    <br>
+                </div>        
+                    <button type="submit" class="btn button-color btn-lg btn-block button-color-active shadow-sm rounded delete-button profil-nickname-margin size-button hide-button border-card">Delete</button>                
+            </div> 
+            {% endif %}
+            <div class="own-container mb-5">
+                <div class="grid" style="align-content: flex-start">
+                    {% for post in mydata %}
+                    <div style="padding: 10px;">                 
+                        <div class="card text-center shadow-0 border-card" style="background-color:{{ post.article_background_colour }}; border-radius: 1rem;">
+                            {% if post.important %}
+                            <div class="card-header " style="background-color: #3c3943; border-radius: 1rem 1rem 0 0;" >         
+                                <div class="col-md-1">
+                                    <i class="fa-solid fa-pen-clip" style="font-size: large; color: rgb(255, 0, 0);"></i>
+                                </div>    
+                                {% else %}
+                            <div class="card-header " style="background-color: #3c3943; padding: 22px; border-radius: 1rem 1rem 0 0;" >                             
+                                {% endif %}  
+                            </div>                                                                      
+                            <div class="card-header" >                                       
+                                <h4 class="card-title text-center">{{ post.title }}</h4>                               
+                            </div>
+                            <div class="card-body" >                                                            
+                                <p class="card-text">{{ post.memo|linebreaksbr }}</p>                              
+                            </div>
+                            <div class="card-footer">                                   
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <p  style="margin-bottom: 0; text-align: left;">Created: {{ post.datetime_field_formatted }}</p>
+                                    </div>
+                                    <div class="col-md-2">
+                                        {% if post.approved %}
+                                        <div class="form-check">
+                                            <input class="form-check-input checkboxes" type="checkbox" checked="checked" value={{post.id}} name="boxes">
+                                        </div>
+                                        {% else %}
+                                        <div class="form-check">
+                                            <input class="form-check-input checkboxes" type="checkbox" value={{post.id}} name="boxes">
+                                        </div>
+                                        {% endif %}                                      
+                                    </div>                                  
+                                </div>                               
+                            </div>                                                   
+                        </div>
+                    </div>                                                                                                    
+                    {% endfor %}                    
+                </div>
+            </div>
+            <div class="d-grid gap-2 col-8 mx-auto">
+                <a href="{% url 'createtodo' %}" class="btn button-color btn-lg button-color-active shadow-sm rounded shows-button border-card">Create</a>
+                <button type="submit" class="btn button-color btn-lg  button-color-active shadow-sm rounded profil-nickname-margin shows-button border-card">Delete</button> 
+                <div class="cat size action shadow-sm profil-nickname-margin shows-button">      
+                    <label>
+                        <input type="checkbox" class="" onClick="toggle(this)"/><span>Select All</span>
+                    </label>
+                    <br>
+                </div>   
+            </div>
+        </form>   
+        <script>
+            FlexMasonry.init('.grid', {         
+            responsive: true,
+            breakpointCols: {
+        'min-width: 1500px': 3,
+        'min-width: 1300px': 2,
+        'min-width: 1100px': 2,
+        'min-width: 900px': 1,
+        'min-width: 576px': 1,
+            },
+            }); 
+        </script>  
+    </body>
+</html>
+{% endblock %}
+
+ 

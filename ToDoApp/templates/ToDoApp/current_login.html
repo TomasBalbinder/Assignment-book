@@ -1,0 +1,43 @@
+{% extends 'ToDoApp/base.html' %}
+{% load bootstrap5 %} 
+{% bootstrap_css %} 
+{% bootstrap_javascript %} 
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Inform page</title>
+        <link rel="stylesheet" href="{% static 'ToDoApp/style.css' %}"> 
+    </head>
+    <body class="gradient-custom">
+        <div class="container py-5">
+            <div class="row d-flex justify-content-center align-items-center h-50 card-vertical">
+                <div class="card card-padding border-card" style="border-radius: 1rem; width: 45rem">
+                <img src="{% static 'ToDoApp\login-pictures.png' %}" alt="" class="card-img-top img-card-radius" height="50px"/>
+                    <div class="card-body py-5 px-md-5">
+                        <div class="row g-0">
+                            <div class="d-flex justify-content-center mb-3 pb-1">
+                                {% for message in messages %}
+                                <p style="font-weight: bold">{{ message }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="d-flex justify-content-center mb-3 pb-1">
+                                <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px">
+                                {{ context.text }}
+                                </h5>
+                            </div>
+                            <p style="font-weight: bold; font-style: italic">
+                                {{ context.author }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% load bootstrap5 %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>invalid email</title>
+        <link rel="stylesheet" href="{% static 'ToDoApp/style.css' %}">
+    </head>
+    <body class="gradient-custom">         
+        <div class="container py-5">
+            <div class="row justify-content-center card-vertical1">
+                <div class="col col-lg-5 ">
+                    <div class="card text-center border-card " style="border-radius: 1rem;">
+                        <div class="card-body">
+                            <h4>Activation link is invalid!</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

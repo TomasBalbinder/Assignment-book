@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {% load bootstrap5 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+        {% load static %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>navigation bar</title>
+        <link rel="stylesheet" href="{% static 'ToDoApp/style.css' %}">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md justify-content-center nav-bar-color padding-nav-bar">
+            <div class="container-fluid">
+            <div class="navbar-brand d-flex w-50 mr-auto">
+            </div>
+                <ul class="nav navbar-nav ml-auto w-100 justify-content-end"> 
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">Menu</span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav w-100 justify-content-center">               
+                            {% if user.is_authenticated %}       
+                            <li class="nav-item">
+                                <a class="nav-link link-text-color " href="{% url 'createtodo' %}">Create Task</a>
+                            </li>     
+                            <li class="nav-item">
+                                <a class="nav-link link-text-color" href="{% url 'showposts' %}">Show Tasks</a>
+                            </li>       
+                            <li class="nav-item">
+                                <a class="nav-link link-text-color" href="{% url 'profile' %}">Profile</a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav ml-auto w-100 justify-content-end">                   
+                            <p class="nav-bar-letter me-3 nav-login-margin">Logged In as {{ user.username }}</p>
+                            <a href="{% url 'profile' %}"><img src="{{ user.profile.image.url }}" class="rounded-circle me-3 nav-avatar-margin btn-block" height="45" width="45" alt="avatar" loading="lazy"/></a>
+                            
+                            <form action="{% url 'logoutuser' %}" method="POST">
+                                {% csrf_token %}                                    
+                                <button type="submit" class="btn button-color btn-md btn-block me-5 nav-button-margin button-color-active button-frame">Logout</button>                            
+                            </form>                 
+                        </ul>                        
+                            {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link link-text-color" href="{% url 'home' %}">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link link-text-color" href="{% url 'signupuser' %}">Sign up</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link link-text-color" href="{% url 'loginuser' %}">Login</a>
+                            </li>                 
+                        <ul class="nav navbar-nav ml-auto w-50">                  
+                        </ul>
+                        {% endif %} 
+                    </div>
+                </ul>  
+            </div>
+          </nav>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

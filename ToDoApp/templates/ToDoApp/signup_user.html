@@ -1,0 +1,83 @@
+{% extends 'ToDoApp/base.html' %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+{% block content %}
+  
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Show posts</title>
+        <link rel="stylesheet" href="{% static 'ToDoApp/style.css' %}">
+    </head>
+    <body class="gradient-custom">
+        {% for message in messages %}    
+        <div class="d-flex justify-content-center">			
+            <div class="alert alert-danger" role="alert">
+                {% if 'nickname' in message.tags %}
+                <h5 class="fw-normal" style="letter-spacing: 1px;">{{message}}</h5>
+                {% endif %}
+                {% if 'password' in message.tags %}
+                <h5 class="fw-normal" style="letter-spacing: 1px;">{{message}}</h5>
+                {% endif %}
+            </div>
+        </div>   
+        {% endfor %}
+        <div class="container py-5 card-vertical">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="my-5 display-4 fw-bold ls-tight">
+                        Assignments made easy  <br />
+                        with Assignment Book! 
+                    </h2>
+                    <p style="color: #091D41">
+                    An assignment book is a type of planner used to keep track of tasks, assignments, and other activities. 
+                    It is typically used by students to help them stay organized and on top of their school work. 
+                    An assignment book may include sections for tracking due dates, class schedules, and notes.
+                    </p>
+            </div>  
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="card border-card" style="border-radius: 1rem;">
+                        <div class="card-body py-5 px-md-5">
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                                <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign up for your account</h5>                  
+                            <div class="row">  
+                                <div class="form-outline mb-4">                   
+                                    {{ form.username }}
+                                    {{ form.username.label_tag }}
+                                </div>           
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">             
+                                    {{ form.password1 }}
+                                    {{ form.password1.label_tag }}
+                                    </div>
+                                </div>    
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">               
+                                    {{ form.password2 }}
+                                    {{ form.password2.label_tag }}
+                                    </div>
+                                </div>
+                            </div>   
+                            <div class="form-outline mb-4">         
+                                {{ form.email }}
+                                {{ form.email.label_tag }}              
+                            </div>        
+                            <button type="submit" class="btn btn-dark btn-lg btn-block">Sign up</button>               
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>  
+{% endblock content %}
+
+

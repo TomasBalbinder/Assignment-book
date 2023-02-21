@@ -1,0 +1,44 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'ToDoApp/style.css' %}">
+	<title>Send email</title>
+</head>
+	<body class="gradient-custom">
+        <div class="container py-5">
+            <div class="row d-flex justify-content-center align-items-center card-vertical1">
+                <div class="col col-xl-8">
+                    <div class="card border-card" style="border-radius: 1rem;">
+                        <div class="row g-0">
+                            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                                <div class="card-body p-lg-5">	   
+                                    <div class="d-flex justify-content-center">						
+                                        <span class="h1 fw-bold mb-5">Hi {{ username }}</span>                               
+                                    </div>	
+                                    <h5 class="fw-normal mb-3 pb-3 text-center" style="letter-spacing: 1px;">Please check your email</h5>               
+                                    <div class="d-flex justify-content-center">
+                                        <a href="{% url 'loginuser' %}" class="btn button-color1 btn-lg btn-block button-color-active shadow-sm rounded size-button border-card">Back</a>
+                                    </div>		              	
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-5 d-md-block">
+                                <img src="{% static 'ToDoApp\sent_email.png' %}" alt="login form" class="img-fluid" style="border-radius: 0 1rem 1rem 0;"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>	
+	</body>
+</html>
+{% block content %}
+{% endblock %}
