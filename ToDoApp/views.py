@@ -196,7 +196,8 @@ def password_reset_request(request):
 						return HttpResponse('Invalid header found.')
                     
 					return redirect ("/password_reset/done/")
-            messages.error(request, 'An invalid email has been entered.')
+            else:        
+                messages.error(request, 'An invalid email has been entered.')
 	password_reset_form = ResetForm()
 	return render(request, "ToDoApp/password/password_reset.html", {"password_reset_form":password_reset_form})
 
