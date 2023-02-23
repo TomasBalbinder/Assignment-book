@@ -176,7 +176,7 @@ def password_reset_request(request):
 		if password_reset_form.is_valid():
 			data = password_reset_form.cleaned_data['email']
 			associated_users = User.objects.filter(Q(email=data))
-			if associated_users.exists():
+		    if associated_users.exists():
 				for user in associated_users:
 					subject = "Password Reset Requested"
 					email_template_name = "ToDoApp/password/password_reset_email.txt"
@@ -195,8 +195,8 @@ def password_reset_request(request):
 					except BadHeaderError:
 						return HttpResponse('Invalid header found.')
                     
-					return redirect ("/password_reset/done/")
-            messages.error(request, 'An invalid email has been entered.')
+				    return redirect ("/password_reset/done/")
+            messages.success(request, f'update was successful')
             return redirect('password_reset')    
 	password_reset_form = ResetForm()
 	return render(request, "ToDoApp/password/password_reset.html", {"password_reset_form":password_reset_form})
