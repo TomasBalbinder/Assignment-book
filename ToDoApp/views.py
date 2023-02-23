@@ -198,6 +198,7 @@ def password_reset_request(request):
 					return redirect ("/password_reset/done/")
             else:        
                 messages.error(request, 'An invalid email has been entered.')
+                return redirect('password_reset')
 	password_reset_form = ResetForm()
 	return render(request, "ToDoApp/password/password_reset.html", {"password_reset_form":password_reset_form})
 
