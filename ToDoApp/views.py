@@ -182,7 +182,7 @@ def password_reset_request(request):
 					email_template_name = "ToDoApp/password/password_reset_email.txt"
 					c = {
 					"email":user.email,
-					'domain':'https://assignment-book1.onrender.com/',
+					'domain':'assignment-book1.onrender.com/',
 					'site_name': 'Website',
 					"uid": urlsafe_base64_encode(force_bytes(user.pk)),
 					"user": user,
@@ -191,7 +191,7 @@ def password_reset_request(request):
 					}
 					email = render_to_string(email_template_name, c)
 					try:
-						send_mail(subject, email, 'admin@example.com' , [user.email], fail_silently=False)
+						send_mail(subject, email, 'tomasbalbinder@gmail.com' , [user.email], fail_silently=False)
 					except BadHeaderError:
 						return HttpResponse('Invalid header found.')
                     
