@@ -172,11 +172,11 @@ def show_posts(request):
 
 def password_reset_request(request):
 	if request.method == "POST":
-        password_reset_form = ResetForm(request.POST)
-        if password_reset_form.is_valid():
-		    data = password_reset_form.cleaned_data['email']
-		    associated_users = User.objects.filter(Q(email=data))
-		    if associated_users.exists():
+		password_reset_form = ResetForm(request.POST)
+		if password_reset_form.is_valid():
+			data = password_reset_form.cleaned_data['email']
+			associated_users = User.objects.filter(Q(email=data))
+			if associated_users.exists():
 				for user in associated_users:
 					subject = "Password Reset Requested"
 					email_template_name = "ToDoApp/password/password_reset_email.txt"
@@ -190,16 +190,12 @@ def password_reset_request(request):
 					'protocol': 'https',
 					}
 					email = render_to_string(email_template_name, c)
-                    try:
+					try:
 						send_mail(subject, email, 'tomasbalbinder@gmail.com' , [user.email], fail_silently=False)
 					except BadHeaderError:
-					    return HttpResponse('Invalid header found.')
+						return HttpResponse('Invalid header found.')
                     
-			
-            	    return redirect ("/password_reset/done/")
-            else:
-                messages.success(request, f'update was successful')
-                return redirect('password_reset')    
+					return redirect ("/password_reset/done/")
 	password_reset_form = ResetForm()
 	return render(request, "ToDoApp/password/password_reset.html", {"password_reset_form":password_reset_form})
 
