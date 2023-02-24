@@ -195,7 +195,7 @@ def password_reset_request(request):
 					except BadHeaderError:
 						return HttpResponse('Invalid header found.')
                     
-				    return redirect('password_reset_done')
+				return redirect('password_reset_done')
    
             messages.success(request, ("Delete data was success!"))
             return redirect('password_reset')
