@@ -181,10 +181,10 @@ def password_reset_request(request):
                     subject = "Password Reset Requested"
                     email_template_name = "ToDoApp/password/password_reset_email.txt"
                     c = {
-					'email':user.email,
+                    'email':user.email,
                     'domain':'assignment-book1.onrender.com',
                     'site_name': 'Website',
-					'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                    'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                     'user': user,
                     'token': default_token_generator.make_token(user),
                     'protocol': 'https',
@@ -192,8 +192,8 @@ def password_reset_request(request):
                     email = render_to_string(email_template_name, c)                 
                     send_mail(subject, email, 'Assignment book' , [user.email], fail_silently=False)
                     return redirect('password_reset_done')
-	password_reset_form = ResetForm()
-	return render(request, "ToDoApp/password/password_reset.html", {"password_reset_form":password_reset_form})
+    password_reset_form = ResetForm()
+    return render(request, "ToDoApp/password/password_reset.html", {"password_reset_form":password_reset_form})
 
 
 
