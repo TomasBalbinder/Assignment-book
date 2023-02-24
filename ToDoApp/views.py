@@ -43,7 +43,10 @@ def sign_up_user(request):
             messages.error(request, 'password is wrong.', extra_tags='password')                       
                
         elif authentication.nickname(request):
-            messages.error(request, 'Nickname is Exist.', extra_tags='nickname')
+            messages.error(request, 'nickname is exist.', extra_tags='nickname')
+
+        elif authentication.email(request):
+            messages.error(request, 'email is exist.', extra_tags='email') 
                  
         else:
             if request.method == "POST":               

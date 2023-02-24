@@ -10,3 +10,7 @@ def nickname(request):
     if User.objects.filter(username=request.POST['username']).exists():
         return True
 
+
+def email(request):
+    if User.objects.filter(email=request.POST['email']).exists():
+        return True
