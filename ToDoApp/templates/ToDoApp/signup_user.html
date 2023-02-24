@@ -20,9 +20,9 @@
             <div class="alert alert-danger" role="alert">
                 {% if 'nickname' in message.tags %}
                 <h5 class="fw-normal" style="letter-spacing: 1px;">{{message}}</h5>
-                {% if 'password' in message.tags %}
+                {% elif 'password' in message.tags %}
                 <h5 class="fw-normal" style="letter-spacing: 1px;">{{message}}</h5>      
-                {% if 'email' in message.tags %}
+                {% elif 'email' in message.tags %}
                 <h5 class="fw-normal" style="letter-spacing: 1px;">{{message}}</h5>
                 {% endif %}
             </div>
