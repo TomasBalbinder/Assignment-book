@@ -171,31 +171,30 @@ def show_posts(request):
 
 
 def password_reset_request(request):
-	if request.method == "POST":
-		password_reset_form = ResetForm(request.POST)
-		if password_reset_form.is_valid():
-			data = password_reset_form.cleaned_data['email']
-			associated_users = User.objects.filter(Q(email=data))
-			if associated_users.exists():
-				for user in associated_users:
-					subject = "Password Reset Requested"
-					email_template_name = "ToDoApp/password/password_reset_email.txt"
-					c = {
-					"email":user.email,
-					'domain':'assignment-book1.onrender.com',
-					'site_name': 'Website',
-					"uid": urlsafe_base64_encode(force_bytes(user.pk)),
-					"user": user,
-					'token': default_token_generator.make_token(user),
-					'protocol': 'https',
-					}
-					email = render_to_string(email_template_name, c)
-					try:
-						send_mail(subject, email, 'Assignment book' , [user.email], fail_silently=False)
-					except BadHeaderError:
-						return HttpResponse('Invalid header found.')
-                    
-					return redirect('password_reset_done')
+    if request.method == "POST":
+        password_reset_form = ResetForm(request.POST)
+        if password_reset_form.is_valid():
+            data = password_reset_form.cleaned_data['email']
+            associated_users = User.objects.filter(Q(email=data))
+            if associated_users.exists():
+                for user in associated_users:
+                    subject = "Password Reset Requested"
+                    email_template_name = "ToDoApp/password/password_reset_email.txt"
+                    c = {
+					'email':user.email,
+                    'domain':'assignment-book1.onrender.com',
+                    'site_name': 'Website',
+					'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                    'user': user,
+                    'token': default_token_generator.make_token(user),
+                    'protocol': 'https',
+                    }
+                    email = render_to_string(email_template_name, c)
+                    try:
+                        send_mail(subject, email, 'Assignment book' , [user.email], fail_silently=False)
+                    except BadHeaderError:
+                        return HttpResponse('Invalid header found.')
+                    return redirect('password_reset_done')
 	password_reset_form = ResetForm()
 	return render(request, "ToDoApp/password/password_reset.html", {"password_reset_form":password_reset_form})
 
