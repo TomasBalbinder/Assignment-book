@@ -171,7 +171,7 @@ def show_posts(request):
 
 
 def password_reset_request(request):
-	
+	if request.method == "POST":
 		password_reset_form = ResetForm(request.POST)
 		if password_reset_form.is_valid():
 			data = password_reset_form.cleaned_data['email']
@@ -195,12 +195,9 @@ def password_reset_request(request):
 					except BadHeaderError:
 						return HttpResponse('Invalid header found.')
                     
-				return redirect('password_reset_done')
-   
-            messages.success(request, ("Delete data was success!"))
-            return redirect('password_reset')
-        password_reset_form = ResetForm()
-        return render(request, "ToDoApp/password/password_reset.html", {"password_reset_form":password_reset_form})
+				    return redirect('password_reset_done')
+    password_reset_form = ResetForm()
+    return render(request, "ToDoApp/password/password_reset.html", {"password_reset_form":password_reset_form})
 
 
 
