@@ -198,7 +198,7 @@ def password_reset_request(request):
 				return redirect('password_reset_done')
     
 	password_reset_form = ResetForm()
-    messages.error(request, 'You have no posts')
+    messages.success(request, ("Delete data was success!"))
 	return render(request, "ToDoApp/password/password_reset.html", {"password_reset_form":password_reset_form})
 
 
