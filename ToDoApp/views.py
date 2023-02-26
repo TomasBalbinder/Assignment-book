@@ -97,9 +97,8 @@ def activate_account(request, uidb64, token):
 
 def current_login(request):
     response = motivation_api(request)
-    split_text = response.text.split('-')
-    context = {'text' : split_text[0], 
-                'author' : split_text[1]}
+    context = {'text' : response.text, 
+                'author' : response.author}
     return render(request, 'ToDoApp/current_login.html',{'context' : context})
 
 
