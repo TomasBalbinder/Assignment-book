@@ -27,7 +27,7 @@ while True:
 
     while datetime.datetime.now() < target_time:
         openai_image()
-        time.sleep(60)
+        time.sleep(360)
         
 
 
