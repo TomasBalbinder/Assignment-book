@@ -19,7 +19,7 @@ import openai_image
 
 def my_background_task():
     while True: 
-        target_time = datetime.datetime.now().replace(hour=22, minute=48, second=00, microsecond=0)
+        target_time = datetime.datetime.now().replace(hour=23, minute=10, second=00, microsecond=0)
 
 
         while datetime.datetime.now() < target_time:
