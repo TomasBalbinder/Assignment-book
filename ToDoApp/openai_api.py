@@ -3,7 +3,7 @@ import urllib.request
 import datetime,time
 
 
-openai.api_key = ("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")
+openai.api_key = ("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")
 
 def openai_image():
   response = openai.Image.create(
@@ -21,5 +21,7 @@ def openai_image():
 
 
 
+
+        
 
 
