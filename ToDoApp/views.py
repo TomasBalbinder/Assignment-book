@@ -18,7 +18,7 @@ from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
 from .restapi import motivation_api
 from django.conf import settings
-
+import json
 
 # Create your views here
 
@@ -97,8 +97,10 @@ def activate_account(request, uidb64, token):
 
 def current_login(request):
     response = motivation_api(request)
-    context = {'text' : response.text}
-    return render(request, 'ToDoApp/current_login.html',{'context' : context})
+    data = json.loads(response.text)
+    author = data["author"]
+    text = data["text"]
+    return render(request, 'ToDoApp/current_login.html',{'author' : author, 'text': text})
 
 
 

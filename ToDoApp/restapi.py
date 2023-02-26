@@ -1,8 +1,6 @@
 import requests
 
-
 def motivation_api(request):
-    import requests
 
     url = "https://quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com/quote"
 
