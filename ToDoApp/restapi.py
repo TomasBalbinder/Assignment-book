@@ -2,17 +2,15 @@ import requests
 
 
 def motivation_api(request):
-    url = "https://motivational-quotes1.p.rapidapi.com/motivation"
+    import requests
 
-    payload = {
-        "key1": "value",
-        "key2": "value"
-    }
+    url = "https://quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com/quote"
+
+    querystring = {"token":"ipworld.info"}
+
     headers = {
-        "content-type": "application/json",
         "X-RapidAPI-Key": "b759e8af49msh997448b4abf5531p145c04jsn0fbbcd9d4ba8",
-        "X-RapidAPI-Host": "motivational-quotes1.p.rapidapi.com"
+        "X-RapidAPI-Host": "quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com"
     }
-
-    response = requests.request("POST", url, json=payload, headers=headers)
+    response = requests.request("GET", url, headers=headers, params=querystring)
     return response
