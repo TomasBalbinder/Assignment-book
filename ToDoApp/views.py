@@ -97,8 +97,7 @@ def activate_account(request, uidb64, token):
 
 def current_login(request):
     response = motivation_api(request)
-    context = {'text' : response.text, 
-                'author' : response.author}
+    context = {'text' : response.text}
     return render(request, 'ToDoApp/current_login.html',{'context' : context})
 
 
