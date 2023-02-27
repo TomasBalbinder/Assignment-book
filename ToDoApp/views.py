@@ -18,6 +18,7 @@ from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
 from .restapi import motivation_api
 from django.conf import settings
+from django import template
 import json
 
 # Create your views here
@@ -182,8 +183,8 @@ def password_reset_request(request):
             if associated_users.exists():
                 for user in associated_users:
                     subject = "Password Reset Requested"
-                    email_template_name = "ToDoApp/password/password_reset_email.html"
-                    c = {
+                    htmltemp = template.loader.get_template('ToDoApp/password/password_reset_email.html')
+                    content = {
                     'email':user.email,
                     'domain':'assignment-book1.onrender.com',
                     'site_name': 'Website',
@@ -192,9 +193,9 @@ def password_reset_request(request):
                     'token': default_token_generator.make_token(user),
                     'protocol': 'https',
                     }
-                    email = render_to_string(email_template_name, c)
+                    html_content = htmltemp.render(content)
                     try:
-                        send_mail(subject, email, 'Assignment book' , [user.email], fail_silently=False)
+                        send_mail(subject, html_content, 'Assignment book' , [user.email], fail_silently=False)
                     except BadHeaderError:
                         return HttpResponse('Invalid header found.')
                     return redirect('password_reset_done')
