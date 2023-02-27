@@ -21,7 +21,13 @@ def openai_image():
 
 
 
+while True: 
+    target_time = datetime.datetime.now().replace(hour=22, minute=38, second=00, microsecond=0)
 
+
+    while datetime.datetime.now() < target_time:
+        openai_image()
+        time.sleep(360)
         
 
 

@@ -182,7 +182,7 @@ def password_reset_request(request):
             if associated_users.exists():
                 for user in associated_users:
                     subject = "Password Reset Requested"
-                    email_template_name = "ToDoApp/password/password_reset_email.txt"
+                    email_template_name = "ToDoApp/password/password_reset_email.html"
                     c = {
                     'email':user.email,
                     'domain':'assignment-book1.onrender.com',
