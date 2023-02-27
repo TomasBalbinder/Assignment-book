@@ -195,7 +195,7 @@ def password_reset_request(request):
                     }
                     html_content = htmltemp.render(content)
                     try:
-                        send_mail(subject, html_content, 'Assignment book' , [user.email], fail_silently=False)
+                        send_mail(html_content, "text/html")
                     except BadHeaderError:
                         return HttpResponse('Invalid header found.')
                     return redirect('password_reset_done')
