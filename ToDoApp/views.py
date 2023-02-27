@@ -199,7 +199,7 @@ def password_reset_request(request):
                     text_content = plaintext.render(content)
                     try:
                         msg = EmailMultiAlternatives(subject, text_content, 'Assignment book', [user.email], headers = {'Reply-To': 'tomasbalbinder@gmail.com'})
-                        msg.attach_alternative(html_content, "text/html")
+                        msg.attach_alternative(html_content, "html")
                         msg.send()
                     except BadHeaderError:
                         return HttpResponse('Invalid header found.')
