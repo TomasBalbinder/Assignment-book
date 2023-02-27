@@ -18,6 +18,7 @@ from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
 from .restapi import motivation_api
 from django.conf import settings
+from django.core.mail import EmailMultiAlternatives
 from django import template
 import json
 
@@ -183,6 +184,7 @@ def password_reset_request(request):
             if associated_users.exists():
                 for user in associated_users:
                     subject = "Password Reset Requested"
+                    plaintext = template.loader.get_template('ToDoApp/password/password_reset_email.txt')
                     htmltemp = template.loader.get_template('ToDoApp/password/password_reset_email.html')
                     content = {
                     'email':user.email,
@@ -194,8 +196,11 @@ def password_reset_request(request):
                     'protocol': 'https',
                     }
                     html_content = htmltemp.render(content)
+                    text_content = plaintext.render(content)
                     try:
-                        send_mail(html_content, "text/html")
+                        msg = EmailMultiAlternatives(subject, text_content, 'Assignment book', [user.email], headers = {'Reply-To': 'tomasbalbinder@gmail.com'})
+                        msg.attach_alternative(html_content, "text/html")
+                        msg.send()
                     except BadHeaderError:
                         return HttpResponse('Invalid header found.')
                     return redirect('password_reset_done')
