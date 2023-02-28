@@ -68,7 +68,7 @@ def sign_up_user(request):
                     })
                     to_email = form.cleaned_data.get('email')
                     msg = EmailMultiAlternatives(
-                        'Assignment book',
+                        from_email='Assignment book',
                         subject= mail_subject,
                         body='Please reset your password by clicking on the following link.',
                         to=[to_email],)
