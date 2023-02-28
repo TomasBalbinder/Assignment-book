@@ -59,17 +59,19 @@ def sign_up_user(request):
                     user.is_active = False      
                     user.save() 
                     current_site = get_current_site(request)
-                    mail_subject = 'Activation link has been sent to your email id'  
-                    html_content = render_to_string('ToDoApp/active_email.html', {  
+                    mail_subject = 'Activation link has been sent to your email id' 
+                    htmltemp = template.loader.get_template('ToDoApp/active_email.html') 
+                    html_content = {  
                         'user': user,  
                         'domain': current_site.domain,  
                         'uid':urlsafe_base64_encode(force_bytes(user.pk)),  
                         'token':account_activation_token.make_token(user),  
-                    })
+                    }
                     msg = EmailMultiAlternatives(
                         subject= mail_subject,
                         body='Please reset your password by clicking on the following link.',
                         to=['tomasbalbinder@gmail.com'],)
+                    html_content = htmltemp.render(html_content)
                     msg.attach_alternative(html_content, "text/html")
                     msg.send()
                     return render(request, 'ToDoApp/sent_email.html', {'username' : username})
