@@ -59,7 +59,7 @@ def sign_up_user(request):
                     user.is_active = False      
                     user.save() 
                     current_site = get_current_site(request)
-                    mail_subject = 'Activation link has been sent to your email id'  
+                    mail_subject = 'Account activation'  
                     html_content = render_to_string('ToDoApp/active_email.html', {  
                         'user': user,  
                         'domain': current_site.domain,  
@@ -69,6 +69,7 @@ def sign_up_user(request):
                     to_email = form.cleaned_data.get('email')
                     msg = EmailMultiAlternatives(
                         subject= mail_subject,
+                        headers='Assignment book',
                         body='Please reset your password by clicking on the following link.',
                         to=[to_email],)
 
