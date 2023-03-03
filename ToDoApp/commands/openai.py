@@ -2,7 +2,7 @@ import openai
 import urllib.request
 from django.core.management.base import BaseCommand
 
-class OpenAi(BaseCommand):
+class Commands(BaseCommand):
 
 
     def handle(self, *args, **options):
