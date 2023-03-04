@@ -88,5 +88,5 @@ This section should list any major frameworks/libraries used to bootstrap your p
 * [![Angular][Angular.io]][Angular-url]
 * [![Svelte][Svelte.dev]][Svelte-url]
 * [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+* [![Bootstrap][Bootstrap.com]][https://getbootstrap.com/]
 * [![JQuery][JQuery.com]][JQuery-url]
