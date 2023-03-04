@@ -6,7 +6,7 @@ import os
 
 class Command(BaseCommand):
 
-    def handle(self):
+    def handle(self, *args, **options):
      
         openai.api_key = os.environ.get('OPENAI_API_KEY')
         response = openai.Image.create(
@@ -16,8 +16,8 @@ class Command(BaseCommand):
         )
         image_url = response['data'][0]['url']
         url = image_url
-        download_image = urllib.request.urlretrieve(url, "ToDoProjectFolder\ToDoApp\static\ToDoApp\openai_image.png")
-        return download_image
+        urllib.request.urlretrieve(url, "ToDoProjectFolder\ToDoApp\static\ToDoApp\openai_image.png")
+        
 
 
 
