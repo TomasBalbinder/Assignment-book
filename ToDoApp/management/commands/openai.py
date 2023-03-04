@@ -7,7 +7,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
      
-        openai.api_key = ("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")
+        openai.api_key = ("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")
         response = openai.Image.create(
             prompt="animal in the library , digital art, fairytale",
             n=1,
