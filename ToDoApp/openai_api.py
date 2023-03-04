@@ -3,7 +3,7 @@ import urllib.request
 import datetime,time
 
 
-openai.api_key = ("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")
+#openai.api_key = ("")
 
 def openai_image():
   response = openai.Image.create(

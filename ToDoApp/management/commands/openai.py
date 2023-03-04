@@ -1,13 +1,14 @@
 import openai
 import urllib.request
 from django.core.management.base import BaseCommand
+import environ
+import os
 
 class Command(BaseCommand):
 
-
     def handle(self, *args, **options):
      
-        openai.api_key = ("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")
+        openai.api_key = os.environ.get('OPENAI')
         response = openai.Image.create(
             prompt="animal in the library , digital art, fairytale",
             n=1,
