@@ -25,10 +25,6 @@
   </p>
 </div>
 
-## Save your time, anywhere, anytime 
-
-This web application serves as a task manager for both computers and mobile devices. It enables easy task management using color-coded cards that can be marked by priority. With a simple interface, tasks can be quickly added or removed, and all changes are instantly synchronized across devices. This web application is ideal for anyone who needs to efficiently organize their tasks and have them at their fingertips.
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -55,6 +51,13 @@ This web application serves as a task manager for both computers and mobile devi
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
+
+## Save your time, anywhere, anytime 
+
+This web application serves as a task manager for both computers and mobile devices. It enables easy task management using color-coded cards that can be marked by priority. With a simple interface, tasks can be quickly added or removed, and all changes are instantly synchronized across devices. This web application is ideal for anyone who needs to efficiently organize their tasks and have them at their fingertips.
+
+
+
 
 How to download a repository. Here are a few ways to do it.
 
