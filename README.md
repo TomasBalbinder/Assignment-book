@@ -1,5 +1,29 @@
+
 # Assignment book 
 
+
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="images/logo-readme.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Best-README-Template</h3>
+
+  <p align="center">
+    An awesome README template to jumpstart your projects!
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+  </p>
+</div>
 ## save your time, anywhere, anytime 
 
 This web application serves as a task manager for both computers and mobile devices. It enables easy task management using color-coded cards that can be marked by priority. With a simple interface, tasks can be quickly added or removed, and all changes are instantly synchronized across devices. This web application is ideal for anyone who needs to efficiently organize their tasks and have them at their fingertips.
