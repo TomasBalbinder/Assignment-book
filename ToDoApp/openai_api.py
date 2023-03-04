@@ -3,7 +3,7 @@ import urllib.request
 import datetime,time
 
 
-"""#openai.api_key = ("")
+#openai.api_key = ("")
 
 def openai_image():
   response = openai.Image.create(
@@ -27,7 +27,7 @@ while True:
 
     while datetime.datetime.now() < target_time:
         openai_image()
-        time.sleep(360)"""
+        time.sleep(360)
         
 
 

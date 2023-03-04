@@ -6,7 +6,7 @@ import os
 
 class Command(BaseCommand):
 
-    def handle(self, *args, **options):
+    def handle(self):
      
         openai.api_key = os.environ.get('OPENAI_API_KEY')
         response = openai.Image.create(
