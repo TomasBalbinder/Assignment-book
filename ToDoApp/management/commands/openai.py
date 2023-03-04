@@ -17,7 +17,6 @@ class Command(BaseCommand):
         image_url = response['data'][0]['url']
         url = image_url
         download_image = urllib.request.urlretrieve(url, "ToDoProjectFolder\ToDoApp\static\ToDoApp\openai_image.png")
-        self.stdout.write(self.style.SUCCESS('Obrázek byl úspěšně stažen.'))
         return download_image
 
 
