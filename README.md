@@ -87,7 +87,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 * [![Html][developer.mozilla.org]][HTML-url]
 * [![Css][css.mozilla.org]][CSS-url]
 * [![Django][djangoproject.com]][Django-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
+* [![Javascript][javascript.com]][Javascript-url]
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
@@ -113,5 +113,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 [Html-url]: https://developer.mozilla.org/
 [Css.mozilla.org]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
 [Css-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
-[djangoproject.com]: https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white
+[Djangoproject.com]: https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white
 [Django-url]: https://www.djangoproject.com/
+[Javascript.com]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
+[Javascript-url]: https://www.javascript.com/
