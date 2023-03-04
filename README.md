@@ -89,8 +89,8 @@ This section should list any major frameworks/libraries used to bootstrap your p
 * [![Svelte][Svelte.dev]][Svelte-url]
 * [![Python][Python.org]][Python-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![HTML][developer.mozilla.org]][HTML-url]
-* [![CSS][developer.mozilla.org]][CSS-url]
+* [![Html][developer.mozilla.org]][HTML-url]
+* [![Css][css.mozilla.org]][CSS-url]
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
@@ -114,6 +114,6 @@ This section should list any major frameworks/libraries used to bootstrap your p
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
 [Developer.mozilla.org]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
-[HTML-url]: https://developer.mozilla.org/
-[Developer.mozilla.org]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
-[CSS-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
+[Html-url]: https://developer.mozilla.org/
+[Css.mozilla.org]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
+[Css-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
