@@ -1,10 +1,11 @@
 import openai
 import urllib.request
 import datetime,time
+import environ
+import os
 
 
-"""#openai.api_key = ("")
-
+openai.api_key = os.environ.get('OPENAI_API_KEY')
 def openai_image():
   response = openai.Image.create(
     prompt="animal in the library , digital art, fairytale",
@@ -27,7 +28,7 @@ while True:
 
     while datetime.datetime.now() < target_time:
         openai_image()
-        time.sleep(360)"""
+        time.sleep(360)
         
 
 
