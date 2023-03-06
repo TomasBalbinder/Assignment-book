@@ -7,8 +7,8 @@ class TodoappConfig(AppConfig):
     def ready(self):
         import ToDoApp.signals
 
-        from . import scheduler
-        scheduler.start()
+        from . import openai_api
+        openai_api.start()
 
 
 
