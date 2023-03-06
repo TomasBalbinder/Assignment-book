@@ -7,6 +7,10 @@ class TodoappConfig(AppConfig):
     def ready(self):
         import ToDoApp.signals
 
+        from . import scheduler
+        scheduler.start()
+
+
 
 
 

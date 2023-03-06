@@ -1,8 +1,10 @@
 import openai
 import urllib.request
-import datetime,time
 import os
 from dotenv import load_dotenv
+from datetime import datetime, timedelta
+from apscheduler.schedulers.background import BackgroundScheduler
+from django.conf import settings
 
 load_dotenv()
 
@@ -22,7 +24,18 @@ def openai_image():
 
     return download_image
 
-openai_image()
+
+
+
+def start():
+    scheduler = BackgroundScheduler()
+    scheduler.add_job(openai_image, 'interval', minutes=5)
+    scheduler.start()
+    print("Scheduler started")
+
+
+if __name__ == '__main__':
+    start()
 
 """while True: 
     target_time = datetime.datetime.now().replace(hour=1, minute=2, second=55, microsecond=0)
