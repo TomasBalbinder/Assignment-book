@@ -1,12 +1,12 @@
 import openai
 import urllib.request
 import os
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 from datetime import datetime, timedelta
 from apscheduler.schedulers.background import BackgroundScheduler
 from django.conf import settings
 
-load_dotenv()
+#load_dotenv()
 
 openai.api_key = os.environ.get('OPENAI_API_KEY')
 def openai_image():
