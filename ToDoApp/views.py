@@ -22,7 +22,7 @@ from django.core.mail import EmailMultiAlternatives
 from django import template
 import json
 from . import openai_api
-from datetime import datetime, time
+import datetime, time
 # Create your views here
 
 
