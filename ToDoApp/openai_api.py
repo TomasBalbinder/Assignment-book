@@ -7,9 +7,10 @@ from datetime import datetime, timedelta
 
 load_dotenv()
 
-openai.api_key = os.environ.get('OPENAI_API_KEY')
+
 def openai_image():
-    
+
+    openai.api_key = os.environ.get('OPENAI_API_KEY')   
     response = openai.Image.create(
     prompt="animal in the library , digital art, fairytale",
     n=1,
@@ -18,7 +19,7 @@ def openai_image():
     url = response['data'][0]['url']
 
     download_image = urllib.request.urlretrieve(url, "ToDoProjectFolder\ToDoApp\static\ToDoApp\openai_image.png")
-
+    
     return download_image
 
 
