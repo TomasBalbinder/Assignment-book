@@ -21,7 +21,7 @@ from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django import template
 import json
-import openai_api
+from . import openai_api
 from datetime import datetime, time
 # Create your views here
 
