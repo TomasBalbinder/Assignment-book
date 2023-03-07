@@ -32,7 +32,6 @@ def home_page(request):
     if datetime.now() < target_time:
 
         openai_api.openai_image()
-        time.sleep(10)
         return render(request, 'ToDoApp/home_page.html')           
     return render(request, 'ToDoApp/home_page.html')
 
