@@ -22,14 +22,14 @@ from django.core.mail import EmailMultiAlternatives
 from django import template
 import json
 from . import openai_api
-import datetime, time
+from datetime import datetime, time
 # Create your views here
 
 
 
 def home_page(request):
-    target_time = datetime.datetime.now().replace(hour=20, minute=35, second=55, microsecond=0)
-    if datetime.datetime.now() < target_time:
+    target_time = datetime.now().replace(hour=20, minute=35, second=55, microsecond=0)
+    if datetime.now() < target_time:
 
         openai_api.openai_image()
         time.sleep(10)
