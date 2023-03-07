@@ -15,9 +15,7 @@ def openai_image():
     n=1,
     size="512x512"
     )
-    image_url = response['data'][0]['url']
-
-    url = image_url
+    url = response['data'][0]['url']
 
     download_image = urllib.request.urlretrieve(url, "ToDoProjectFolder\ToDoApp\static\ToDoApp\openai_image.png")
 
