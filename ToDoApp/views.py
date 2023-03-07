@@ -28,7 +28,7 @@ from datetime import datetime, time
 
 
 def home_page(request):
-    target_time = datetime.now().replace(hour=20, minute=35, second=55, microsecond=0)
+    target_time = datetime.now().replace(hour=21, minute=30, second=55, microsecond=0)
     if datetime.now() < target_time:
 
         openai_api.openai_image()
