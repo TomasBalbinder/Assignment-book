@@ -7,9 +7,6 @@ class TodoappConfig(AppConfig):
     def ready(self):
         import ToDoApp.signals
 
-        from . import openai_api
-        openai_api.start()
-
 
 
 
