@@ -21,18 +21,12 @@ from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django import template
 import json
-from . import openai_api
-from datetime import datetime, time
+
 # Create your views here
 
 
 
-def home_page(request):
-    target_time = datetime.now().replace(hour=21, minute=30, second=55, microsecond=0)
-    if datetime.now() < target_time:
-
-        openai_api.openai_image()
-        return render(request, 'ToDoApp/home_page.html')           
+def home_page(request):        
     return render(request, 'ToDoApp/home_page.html')
 
 

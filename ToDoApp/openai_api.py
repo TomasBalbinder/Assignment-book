@@ -2,7 +2,7 @@ import openai
 import urllib.request
 import os
 from dotenv import load_dotenv
-from datetime import datetime, timedelta
+
 
 
 load_dotenv()
@@ -19,7 +19,7 @@ def openai_image():
     url = response['data'][0]['url']
 
     download_image = urllib.request.urlretrieve(url, "ToDoProjectFolder\ToDoApp\static\ToDoApp\openai_image.png")
-    
+
     return download_image
 
 
