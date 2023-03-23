@@ -121,6 +121,7 @@ def logout_user(request):
 
 
 def login_user(request):
+    
     if request.method == "GET":
         return render(request, 'ToDoApp/login_user.html', {'form' : LoginForm()})
 
