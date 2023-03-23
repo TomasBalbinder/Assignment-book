@@ -179,7 +179,7 @@ def show_posts(request):
             else:     
                 return render(request, 'ToDoApp/show_posts.html', {'mydata' : mydata})
     else:
-        return render(request, 'ToDoApp/login_user.html', {'form' : LoginForm()})
+        return render(login_user(request))
 
 
 
