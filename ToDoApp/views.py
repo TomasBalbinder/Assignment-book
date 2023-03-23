@@ -221,7 +221,7 @@ def password_reset_request(request):
 
 
 
-@login_required
+
 def profile(request):
     
     if request.user.is_authenticated:
