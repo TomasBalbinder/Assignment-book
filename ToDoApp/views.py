@@ -223,26 +223,30 @@ def password_reset_request(request):
 
 @login_required
 def profile(request):
-
-    if request.method == "POST":
-        user_update = UserUpdateForm(request.POST, instance=request.user)
-        image_update = UpdateProfilePicture(request.POST, request.FILES, instance=request.user.profile)
-
-        if user_update.is_valid() and image_update.is_valid():
-
-            user_update.save()
-            image_update.save()
-
-            messages.success(request, f'update was successful')
-            return redirect('profile')
-    else:
-        user_update = UserUpdateForm(instance=request.user)
-        image_update = UpdateProfilePicture(instance=request.user.profile)
-
     
-    context = {'user_update' : user_update, 
-                'image_update' : image_update}
-    return render(request, 'ToDoApp/profile.html', context)
+    if request.user.is_authenticated:
+
+        if request.method == "POST":
+            user_update = UserUpdateForm(request.POST, instance=request.user)
+            image_update = UpdateProfilePicture(request.POST, request.FILES, instance=request.user.profile)
+
+            if user_update.is_valid() and image_update.is_valid():
+
+                user_update.save()
+                image_update.save()
+
+                messages.success(request, f'update was successful')
+                return redirect('profile')
+        else:
+            user_update = UserUpdateForm(instance=request.user)
+            image_update = UpdateProfilePicture(instance=request.user.profile)
+
+        
+        context = {'user_update' : user_update, 
+                    'image_update' : image_update}
+        return render(request, 'ToDoApp/profile.html', context)
+    else:
+        return redirect('loginuser')
 
 
 
