@@ -122,7 +122,7 @@ def logout_user(request):
 
 def login_user(request):
     if request.method == "GET":
-        return render(request, 'ToDoApp/signup_user.html', {'form' : CustomRegisterForm()})
+        return render(request, 'ToDoApp/login_user.html', {'form' : LoginForm()})
 
     username = request.POST['username']
     password = request.POST['password1']
