@@ -155,33 +155,33 @@ def create_article(request):
         return redirect('createtodo')
 
 
-@login_required
 def show_posts(request):
-    
-    if request.method == "GET":
-        return render(request, 'ToDoApp/login_user.html', {'form' : LoginForm()})
-      
-    mydata = TodoModel.objects.filter(user=request.user).order_by('-important','created')
 
-    if not mydata:
-        messages.error(request, 'You have no posts', extra_tags='noposts') 
-        return render(request, 'ToDoApp/show_posts.html', {'mydata' : mydata})
+    if request.user.is_authenticated:   
+        mydata = TodoModel.objects.filter(user=request.user).order_by('-important','created')
 
-    else:
-        if request.method == "POST":
-            id_list = request.POST.getlist('boxes')
-
-            if not id_list:
-                return render(request, 'ToDoApp/show_posts.html', {'mydata' : mydata})
-
-            else:                  
-                mydata.filter(pk__in=id_list).delete()
-                messages.success(request, ("Delete data was success!"))
-                return redirect('showposts')
-
-        else:     
+        if not mydata:
+            messages.error(request, 'You have no posts', extra_tags='noposts') 
             return render(request, 'ToDoApp/show_posts.html', {'mydata' : mydata})
-    
+
+        else:
+            if request.method == "POST":
+                id_list = request.POST.getlist('boxes')
+
+                if not id_list:
+                    return render(request, 'ToDoApp/show_posts.html', {'mydata' : mydata})
+
+                else:                  
+                    mydata.filter(pk__in=id_list).delete()
+                    messages.success(request, ("Delete data was success!"))
+                    return redirect('showposts')
+
+            else:     
+                return render(request, 'ToDoApp/show_posts.html', {'mydata' : mydata})
+    else:
+        return render(request, 'ToDoApp/login_user.html', {'form' : LoginForm()})
+
+
 
 
 
@@ -227,7 +227,6 @@ def profile(request):
     if request.method == "POST":
         user_update = UserUpdateForm(request.POST, instance=request.user)
         image_update = UpdateProfilePicture(request.POST, request.FILES, instance=request.user.profile)
-        print(user_update)
 
         if user_update.is_valid() and image_update.is_valid():
 
