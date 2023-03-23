@@ -155,8 +155,12 @@ def create_article(request):
         return redirect('createtodo')
 
 
-
-def show_posts(request):  
+@login_required
+def show_posts(request):
+    
+    if request.method == "GET":
+        return render(request, 'ToDoApp/login_user.html', {'form' : LoginForm()})
+      
     mydata = TodoModel.objects.filter(user=request.user).order_by('-important','created')
 
     if not mydata:
@@ -177,7 +181,7 @@ def show_posts(request):
 
         else:     
             return render(request, 'ToDoApp/show_posts.html', {'mydata' : mydata})
-
+    
 
 
 
