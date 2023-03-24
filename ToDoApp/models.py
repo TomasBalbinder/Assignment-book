@@ -41,14 +41,14 @@ class TodoModel(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(default=choice(['profile-p1.png', 
-    'profile-p2.png',
-    'profile-p3.png', 
-    'profile-p4.png', 
-    'profile-p5.png', 
-    'profile-p6.png', 
-    'profile-p7.png', 
-    'profile-p8.png' ]), 
+    image = models.ImageField(default=choice(['profile_p1.png', 
+    'profile_p2.png',
+    'profile_p3.png', 
+    'profile_p4.png', 
+    'profile_p5.png', 
+    'profile_p6.png', 
+    'profile_p7.png', 
+    'profile_p8.png' ]), 
     upload_to='profile_pics')
 
     def __str__(self):
