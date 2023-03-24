@@ -286,6 +286,10 @@ hr.line {
 }
 a:hover {
     color: #f3d4a0;
-  }
+}
 
+.card-header {
 
+    height: 50px;
+
+}
