@@ -52,8 +52,8 @@ urlpatterns = [
 
     # verification from email registration
     path('activate/<uidb64>/<token>/',views.activate_account , name='activate'),
+
+    static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
 ]
 
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
