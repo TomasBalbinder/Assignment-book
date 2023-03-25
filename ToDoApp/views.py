@@ -143,18 +143,21 @@ def login_user(request):
 
 
 def create_article(request):
+    if request.user.is_authenticated:
 
-    if request.method == "GET":
-        form = TodoForm()
-        return render(request, 'ToDoApp/create_article.html', {'form' : form})
+        if request.method == "GET":
+            form = TodoForm()
+            return render(request, 'ToDoApp/create_article.html', {'form' : form})
 
+        else:
+            form = TodoForm(request.POST)
+            newtodo = form.save(commit=False)
+            newtodo.user = request.user   
+            newtodo.save()
+            messages.add_message(request, messages.SUCCESS, f'{newtodo.title}')
+            return redirect('createtodo')
     else:
-        form = TodoForm(request.POST)
-        newtodo = form.save(commit=False)
-        newtodo.user = request.user   
-        newtodo.save()
-        messages.add_message(request, messages.SUCCESS, f'{newtodo.title}')
-        return redirect('createtodo')
+        return redirect('loginuser')
 
 
 def show_posts(request):
