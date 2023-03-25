@@ -21,11 +21,13 @@ from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django import template
 import json
+from .openai_api import openai_image
 # Create your views here
 
 
 
-def home_page(request):       
+def home_page(request):
+    openai_image()       
     return render(request, 'ToDoApp/home_page.html')
 
 
