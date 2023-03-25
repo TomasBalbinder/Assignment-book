@@ -135,13 +135,13 @@ textarea:focus  {
     background-color: #f3d4a0;
     border-radius: 4px;
     overflow: hidden;
-    float: left;
+   
     border: 2px solid #593E25;
 }
   
 .cat label {
-    float: left; line-height: 2.8em;
-    width: 15.0em; height: 2.9em;
+
+    width: 7.8em; height: 2.9em;
 }
   
 .cat label span {
