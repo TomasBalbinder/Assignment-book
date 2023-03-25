@@ -27,8 +27,8 @@ from .openai_api import openai_image
 
 
 def home_page(request):
-    openai_image()       
-    return render(request, 'ToDoApp/home_page.html')
+    ai_pic = openai_image()       
+    return render(request, 'ToDoApp/home_page.html', {'ai_pic' : ai_pic})
 
 
 
