@@ -37,8 +37,8 @@ class TodoForm(forms.ModelForm):
 
 class CustomRegisterForm(UserCreationForm):
     username = forms.CharField(min_length=5, max_length=30, label='Username', widget=forms.TextInput(attrs={'class' : 'form-control shadow-sm bg-white rounded border-gold'}))
-    password1 = forms.CharField(min_length=5, max_length=30, label='Password', widget=forms.TextInput(attrs={'class' : 'form-control shadow-sm bg-white rounded border-gold'}))
-    password2 = forms.CharField(min_length=5, max_length=30, label='Password confirmation', widget=forms.TextInput(attrs={'class' : 'form-control shadow-sm bg-white rounded border-gold'}))
+    password1 = forms.CharField(min_length=8, max_length=30, label='Password', widget=forms.TextInput(attrs={'class' : 'form-control shadow-sm bg-white rounded border-gold'}))
+    password2 = forms.CharField(min_length=8, max_length=30, label='Password confirmation', widget=forms.TextInput(attrs={'class' : 'form-control shadow-sm bg-white rounded border-gold'}))
     email = forms.EmailField(max_length=50, label='Email', widget=forms.EmailInput(attrs={'class' : 'form-control shadow-sm bg-white rounded border-gold'}))
     
     class Meta:
