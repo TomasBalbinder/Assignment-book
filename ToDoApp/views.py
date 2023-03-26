@@ -266,7 +266,8 @@ def delete_account(request, pk):
 def terms(request):
     return render(request, 'ToDoApp/terms.html')
 
-
+def policy(request):
+    return render(request, 'ToDoApp/policy.html')
 
 
 
