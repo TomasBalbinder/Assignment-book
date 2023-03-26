@@ -263,6 +263,10 @@ def delete_account(request, pk):
     return render(request, 'ToDoApp/delete_confirm.html')
 
 
+def terms(request):
+    return render(request, 'ToDoApp/terms.html')
+
+
 
 
 

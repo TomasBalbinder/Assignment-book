@@ -53,7 +53,8 @@ urlpatterns = [
     # verification from email registration
     path('activate/<uidb64>/<token>/',views.activate_account , name='activate'),
 
-    
+    # other
+    path('terms/', views.terms, name='terms'),
 ]
 
 
