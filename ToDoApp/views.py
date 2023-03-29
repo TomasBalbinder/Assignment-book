@@ -235,7 +235,7 @@ def profile(request):
             user_update = UserUpdateForm(request.POST, instance=request.user)
             image_update = UpdateProfilePicture(request.POST, request.FILES, instance=request.user.profile)
 
-            if user_update.is_valid() and image_update.is_valid():
+            if user_update.is_valid() or image_update.is_valid():
 
                 user_update.save()
                 image_update.save()
