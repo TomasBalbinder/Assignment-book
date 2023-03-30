@@ -56,9 +56,9 @@ class ResetForm(forms.ModelForm):
 
 
 class UserUpdateForm(forms.ModelForm):
-    first_name = forms.CharField(min_length=2, max_length=30, widget=forms.TextInput(attrs={'class' : 'form-control shadow-sm rounded updatep'}))
-    last_name = forms.CharField(min_length=2, max_length=30, widget=forms.TextInput(attrs={'class' : 'form-control shadow-sm rounded updatep'}))
-    email = forms.EmailField(min_length=2, max_length=50, widget=forms.EmailInput(attrs={'class' : 'form-control shadow-sm rounded updatep'}))
+    first_name = forms.CharField(min_length=5, max_length=30, required=False ,widget=forms.TextInput(attrs={'class' : 'form-control shadow-sm rounded updatep'}))
+    last_name = forms.CharField(min_length=5, max_length=30, required=False, widget=forms.TextInput(attrs={'class' : 'form-control shadow-sm rounded updatep'}))
+    email = forms.EmailField(min_length=5, max_length=50, required=False, widget=forms.EmailInput(attrs={'class' : 'form-control shadow-sm rounded updatep'}))
 
 
     class Meta:
