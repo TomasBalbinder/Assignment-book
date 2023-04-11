@@ -30,11 +30,6 @@
             </div>
         </div>   
         {% endfor %}
-        {% for field in form %}
-            {% for error in field.errors %}
-                <li>{{ error }}</li>
-            {% endfor %}
-        {% endfor %}
         <div class="container py-5 card-vertical">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-lg-6 mb-5 mb-lg-0">
