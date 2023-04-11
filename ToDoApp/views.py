@@ -44,14 +44,14 @@ def sign_up_user(request):
             messages.error(request, 'password is wrong', extra_tags='password')
                            
         elif authentication.password(request):
-            messages.error(request, 'password is wrong.', extra_tags='password')                       
+            messages.error(request, 'password is wrong', extra_tags='password')                       
                
         elif authentication.nickname(request):
-            messages.error(request, 'nickname is exist.', extra_tags='nickname')
+            messages.error(request, 'nickname is exist', extra_tags='nickname')
 
         elif authentication.email(request):
-            messages.error(request, 'email is exist.', extra_tags='email') 
-
+            messages.error(request, 'email is exist', extra_tags='email') 
+            
                   
         else:
             if request.method == "POST":               
@@ -81,7 +81,9 @@ def sign_up_user(request):
                     return render(request, 'ToDoApp/sent_email.html', {'username' : username})
                     
                 else:
+
                     form = CustomRegisterForm()
+                    messages.error(request, 'password and name are very similar') 
                     return render(request, 'ToDoApp/signup_user.html', {'form' : form})
 
     return render(request, 'ToDoApp/signup_user.html', {'form' : CustomRegisterForm()})
