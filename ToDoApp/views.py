@@ -52,7 +52,7 @@ def sign_up_user(request):
         elif authentication.email(request):
             messages.error(request, 'email is exist.', extra_tags='email') 
 
-        elif UserAttributeSimilarityValidator:
+        elif not UserAttributeSimilarityValidator:
             messages.error(request, 'your password or name is too similar.', extra_tags='both') 
     
                  
