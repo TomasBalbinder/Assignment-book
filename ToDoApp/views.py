@@ -22,6 +22,7 @@ from django.core.mail import EmailMultiAlternatives
 from django import template
 import json
 from .openai_api import openai_image
+from django.contrib.auth.password_validation import validate_password
 # Create your views here
 
 
@@ -50,6 +51,10 @@ def sign_up_user(request):
 
         elif authentication.email(request):
             messages.error(request, 'email is exist.', extra_tags='email') 
+
+        elif validate_password:
+            messages.error(request, 'your password or name is too similar.', extra_tags='both') 
+    
                  
         else:
             if request.method == "POST":               
