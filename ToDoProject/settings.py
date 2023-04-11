@@ -116,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
         'OPTIONS': {
-            'user_attributes': ('username', 'password1', 'password2'),
+            'user_attributes': ('username', 'password'),
             'message': 'your password or name is too similar.'
         }
     },
