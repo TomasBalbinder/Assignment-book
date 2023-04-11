@@ -21,14 +21,14 @@ from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django import template
 import json
-from .openai_api import openai_image
+from .openai_api import create_image
 
 # Create your views here
 
 
 
 def home_page(request):
-    ai_pic = openai_image()       
+    ai_pic = create_image()       
     return render(request, 'ToDoApp/home_page.html', {'ai_pic' : ai_pic})
 
 
@@ -51,8 +51,7 @@ def sign_up_user(request):
 
         elif authentication.email(request):
             messages.error(request, 'email is exist', extra_tags='email') 
-            
-                  
+                              
         else:
             if request.method == "POST":               
                 form = CustomRegisterForm(request.POST)

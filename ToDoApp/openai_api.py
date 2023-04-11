@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def openai_image():
+def create_image():
 
     openai.api_key = os.environ.get('OPENAI_API_KEY')   
     response = openai.Image.create(
@@ -23,15 +23,5 @@ def openai_image():
     return url
 
 
-
-
-"""while True: 
-    target_time = datetime.datetime.now().replace(hour=1, minute=2, second=55, microsecond=0)
-
-
-    while datetime.datetime.now() < target_time:
-        openai_image()
-        time.sleep(10)
-        """
 
 
