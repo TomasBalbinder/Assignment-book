@@ -83,7 +83,7 @@ def sign_up_user(request):
                 else:
 
                     form = CustomRegisterForm()
-                    messages.error(request, 'password and name are very similar') 
+                    messages.error(request, 'password and name are very similar or weak') 
                     return render(request, 'ToDoApp/signup_user.html', {'form' : form})
 
     return render(request, 'ToDoApp/signup_user.html', {'form' : CustomRegisterForm()})
