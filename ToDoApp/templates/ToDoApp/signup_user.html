@@ -24,7 +24,7 @@
                 <h5 class="fw-normal" style="letter-spacing: 1px;">{{message}}</h5>      
                 {% elif 'email' in message.tags %}
                 <h5 class="fw-normal" style="letter-spacing: 1px;">{{message}}</h5>
-                {% elif 'both' in message.tags %}
+                {% else %}
                 <h5 class="fw-normal" style="letter-spacing: 1px;">{{message}}</h5>
                 {% endif %}
             </div>
