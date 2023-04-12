@@ -28,8 +28,14 @@ from .openai_api import create_image
 
 
 def home_page(request):
-    ai_pic = create_image()       
-    return render(request, 'ToDoApp/home_page.html', {'ai_pic' : ai_pic})
+    try:
+        ai_pic = create_image() 
+        return render(request, 'ToDoApp/home_page.html', {'ai_pic' : ai_pic})
+    except:
+        return render(request, 'ToDoApp/home_page.html')
+    
+          
+    
 
 
 
